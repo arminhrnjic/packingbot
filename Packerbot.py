@@ -1,13 +1,20 @@
 import discord
 
+import json
+
+with open('config.json') as json_file:
+    data = json.load(json_file)
+    TOKEN=data['token']
+
 client=discord.Client()
 
 prefix='?'
-TOKEN='ODIwMjQwNTk3OTMwOTk5ODE4.YEySlQ.lojwqI7_oefr-IkOXdsA70OD-Jc'
+
 
 @client.event
 async def on_ready():
     print('we have logged in as {0.user}'.format(client))
+    
 
 @client.event
 async def on_message(message):
